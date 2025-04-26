@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Atividades - 07/04/2024</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0f172a;
+      color: #e2e8f0;
+      margin: 0;
+      padding: 40px 20px;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      display: grid;
+      gap: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2.5rem;
+      color: #38bdf8;
+      margin-bottom: 40px;
+    }
+
+    .card {
+      background-color: #1e293b;
+      padding: 24px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      transition: transform 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+    }
+
+    h2 {
+      margin-top: 0;
+      color: #7dd3fc;
+      font-size: 1.2rem;
+    }
+
+    button {
+      padding: 10px 18px;
+      background-color: #38bdf8;
+      color: #0f172a;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #0ea5e9;
+    }
+
+    input[type="number"] {
+      width: 80px;
+      padding: 8px;
+      border-radius: 6px;
+      border: none;
+      margin-right: 10px;
+      font-size: 1rem;
+    }
+
+    code {
+      background-color: #334155;
+      padding: 4px 8px;
+      border-radius: 6px;
+      font-family: monospace;
+      color: #93c5fd;
+    }
+
+    .output {
+      background-color: #0f172a;
+      border-left: 4px solid #38bdf8;
+      padding: 12px;
+      margin-top: 10px;
+      border-radius: 6px;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🧪 Atividades em JavaScript</h1>
+
+    <div class="card">
+      <h2>1. Mensagem "Olá Mundo"</h2>
+      <button onclick="olaMundo()">Clique para ver a mensagem</button>
+    </div>
+
+    <div class="card">
+      <h2>2. Soma de dois inteiros</h2>
+      <input type="number" id="numeroA" placeholder="1º número">
+      <input type="number" id="numeroB" placeholder="2º número">
+      <button onclick="somaInteiros()">Somar</button>
+      <p id="resultadoSoma" class="output"></p>
+    </div>
+
+    <div class="card">
+      <h2>3. Alterar propriedade por <code>id</code></h2>
+      <p id="textoId" class="output">Texto original por ID</p>
+      <button onclick="alterarPorId()">Alterar texto (ID)</button>
+    </div>
+
+    <div class="card">
+      <h2>4. Alterar propriedade por <code>name</code></h2>
+      <p name="textoName" class="output">Texto original por NAME</p>
+      <button onclick="alterarPorName()">Alterar texto (NAME)</button>
+    </div>
+
+    <div class="card">
+      <h2>5. Alterar propriedade por <code>class</code></h2>
+      <p class="minha-classe output">Texto original por CLASS</p>
+      <button onclick="alterarPorClass()">Alterar texto (CLASS)</button>
+    </div>
+  </div>
+
+  <script>
+    function olaMundo() {
+      alert('Olá Mundo!');
+    }
+
+    function somaInteiros() {
+      const a = parseFloat(document.getElementById('numeroA').value);
+      const b = parseFloat(document.getElementById('numeroB').value);
+
+      if (isNaN(a) || isNaN(b)) {
+        document.getElementById('resultadoSoma').innerText = 'Por favor, insira dois números válidos.';
+        return;
+      }
+
+      const soma = a + b;
+      document.getElementById('resultadoSoma').innerText = `Resultado: ${soma}`;
+    }
+
+    function alterarPorId() {
+      document.getElementById('textoId').innerText = 'Texto alterado por ID!';
+    }
+
+    function alterarPorName() {
+      const elementos = document.getElementsByName('textoName');
+      if (elementos.length > 0) {
+        elementos[0].innerText = 'Texto alterado por NAME!';
+      }
+    }
+
+    function alterarPorClass() {
+      const elementos = document.getElementsByClassName('minha-classe');
+      if (elementos.length > 0) {
+        elementos[0].innerText = 'Texto alterado por CLASS!';
+        elementos[0].style.color = '#f87171'; // vermelho claro
+      }
+    }
+  </script>
+</body>
+</html>
